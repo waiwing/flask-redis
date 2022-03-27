@@ -20,7 +20,7 @@ jobs:
       - 
         name: build and push dwr hahah
         run: /
-        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PWD }}
-        docker builds ls
-        docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t waiwing14/flask-redis:latest .
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PWD }}
+          docker builds ls
+          docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t waiwing14/flask-redis:latest .
 
