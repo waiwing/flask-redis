@@ -13,4 +13,4 @@ jobs:
       - name: dockerhub login
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PWD }}
       - name: push to dockerhub
-        run: docker image push xiaopeng163/flask-redis:latest
+        run: docker image push waiwing14/flask-redis:latest
