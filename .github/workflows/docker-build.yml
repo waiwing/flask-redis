@@ -4,13 +4,23 @@ jobs:
   Docker-Build-Push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+          -
+        name: Checkout
         uses: actions/checkout@v2
-      - name: docker iamge build
-        run: docker build -t waiwing14/flask-redis:latest .
-      - name: list docker image
-        run: docker image ls
-      - name: dockerhub login
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PWD }}
-      - name: push to dockerhub
-        run: docker image push waiwing14/flask-redis:latest
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
+      - 
+        name: build and push dwr hahah
+        run: /
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PWD }}
+        docker builds ls
+        docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t waiwing14/flask-redis:latest
+
