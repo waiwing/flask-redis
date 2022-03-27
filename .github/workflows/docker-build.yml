@@ -18,9 +18,12 @@ jobs:
         name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
       - 
-        name: build and push dwr hahah
-        run: /
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PWD }} 
-          docker buildx ls 
-          docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t waiwing14/flask-redis:latest . 
+        name: docker login
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PWD }} 
+      -
+        name: show ls
+        run: docker buildx ls 
+      - 
+        name: docker buildx
+        run:  docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t waiwing14/flask-redis:latest . 
           
