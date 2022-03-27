@@ -7,6 +7,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: docker iamge build
-        run: docker build -t xiaopeng163/flask-redis:latest
+        run: docker build -t xiaopeng163/flask-redis:latest .
       - name: list docker image
         run: docker image ls
